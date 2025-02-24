@@ -4,8 +4,6 @@ QSCATTER=PSTD_QScat.cpp potential.cpp utility.cpp qscat.cpp
 HEADER_QSCATTER=PSTD_QScat.h run_environment.h utility.h
 num_threads?=1
 
-default: float double
-
 fqscat:	$(QSCATTER) $(HEADER_QSCATTER)
 	echo =======================make fqscat=======================
 	$(MPIICPX) $(SCATFLAGS) -D__USE_FLOAT__ -D__OMP_NUM_THREADS__=$(num_threads) -D$(show_init_status) -D$(smooth_profile) -o fqscat $(QSCATTER) -lm
